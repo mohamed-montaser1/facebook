@@ -63,5 +63,12 @@
             <li>Search For Friends By Name</li>
         </ul>
     </li>
+</ul>
+<hr />
+<h2>Core Technologies</h2>
 
+<ul>
+    <li><b>Next js</b></li>
+    <li><b>Typescript</b></li>
+    <li><b>Tailwind</b></li>
 </ul>
