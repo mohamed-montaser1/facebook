@@ -1,9 +1,16 @@
+import SignUpModal from "@/components/SignUpModal";
+import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 export default function Login() {
+  let [showSignUpModal, setShowSignUpModal] = useState<boolean>(false);
   return (
     <>
+      <Head>
+        <title>Facebook - log in or sign up</title>
+      </Head>
       <div className="page h-screen w-full flex justify-center items-center">
         <div className="container flex justify-center">
           <div className="info w-1/2 h-full mt-6 hidden lg:block">
@@ -30,7 +37,10 @@ export default function Login() {
                 Forgotten password?
               </Link>
               <hr className="mt-5" />
-              <button className="min-w-1/2 max-w-fit px-5 h-[48px] btn-primary text-white text-xl font-semibold mt-3 bg-green-500 rounded-md mx-auto block hover:bg-green-600 transition ease-linear">
+              <button
+                className="min-w-1/2 max-w-fit px-5 h-[48px] btn-primary text-white text-xl font-semibold mt-3 bg-green-500 rounded-md mx-auto block hover:bg-green-600 transition ease-linear"
+                onClick={() => setShowSignUpModal(true)}
+              >
                 Create New Account
               </button>
             </div>
@@ -48,6 +58,9 @@ export default function Login() {
           </div>
         </div>
       </div>
+      {showSignUpModal && (
+        <SignUpModal setShowSignUpModal={setShowSignUpModal} />
+      )}
     </>
   );
 }
