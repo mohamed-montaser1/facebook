@@ -1,10 +1,15 @@
-export default function Logo() {
+interface Props {
+  width?: number;
+  height?: number;
+}
+
+export default function Logo({ height, width }: Props) {
   return (
     <svg
       viewBox="0 0 36 36"
       fill="url(#:R1kjaj9emhpapd5aq:)"
-      height="40"
-      width="40"
+      height={height || 40}
+      width={width || 40}
     >
       <defs>
         <linearGradient

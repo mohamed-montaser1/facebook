@@ -1,29 +1,16 @@
 import Image from "next/image";
+import Logo from "./logo";
+import SideBarNavigation from "./SideBarNavigation";
+import SideBarGroups from "./SideBarGroups";
 
 export default function SideBar() {
   return (
     <aside className="side-bar">
-      <SideBarItem img="/test-account-pic.jpg" text="Mohamed Montaser" />
+      <SideBarNavigation />
+      <SideBarGroups />
+      <p className="font-semibold text-slate-500 mt-5">
+        Created By Mohamed Montaser
+      </p>
     </aside>
-  );
-}
-
-interface ISideBarItem {
-  img: string;
-  text: string;
-}
-
-function SideBarItem({ img, text }: ISideBarItem) {
-  return (
-    <div className="flex items-center gap-2 cursor-pointer bg-slate-200">
-      <Image
-        src={img}
-        alt="sidebar-item__image"
-        width={36}
-        height={36}
-        className="rounded-full select-none"
-      />
-      <span className="font-semibold text-md select-none">{text}</span>
-    </div>
   );
 }

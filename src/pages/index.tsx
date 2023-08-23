@@ -12,7 +12,7 @@ export default function Home() {
         <title>Facebook</title>
       </Head>
       <NavBar current="home" />
-      {/* <SideBar /> */}
+      <SideBar />
     </>
   );
 }

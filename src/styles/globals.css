@@ -22,7 +22,7 @@
     @apply w-32 border border-gray-200 rounded-md px-1 h-9;
   }
   .side-bar {
-    @apply p-4 w-80 bg-red-500;
+    @apply p-4 w-72 overflow-auto max-[1099px]:hidden;
     height: calc(100vh - 56px);
   }
 }
@@ -38,4 +38,13 @@
 body {
   color: rgb(var(--foreground-rgb));
   background: #f0f2f5;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #b0b3bb;
+  border-radius: 0.3rem;
 }
