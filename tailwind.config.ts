@@ -11,6 +11,9 @@ const config: Config = {
       screens: {
         ml: "992px",
       },
+      colors: {
+        cgray: "#e4e6eb",
+      },
     },
   },
   plugins: [],

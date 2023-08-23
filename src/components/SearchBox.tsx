@@ -14,7 +14,7 @@ export default function SearchBox() {
           placeholder="Search Facebook"
         />
       </div>
-      <span className="bg-[#e4e6eb] hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 min-[464px]:hidden ml-3">
+      <span className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 min-[464px]:hidden ml-3">
         <Notification />
       </span>
     </>

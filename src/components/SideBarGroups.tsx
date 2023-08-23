@@ -13,7 +13,7 @@ export default function SideBarGroups() {
 
 function SideBarGroup() {
   return (
-    <div className="flex items-center gap-2 my-2 hover:bg-[#e4e6eb] transition ease-linear py-2 px-2 rounded-lg cursor-pointer">
+    <div className="flex items-center gap-2 my-2 hover:bg-cgray transition ease-linear py-2 px-2 rounded-lg cursor-pointer">
       <Image
         src={"/test-account-pic.jpg"}
         width={36}

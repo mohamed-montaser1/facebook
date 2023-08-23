@@ -22,8 +22,14 @@
     @apply w-32 border border-gray-200 rounded-md px-1 h-9;
   }
   .side-bar {
-    @apply p-4 w-72 overflow-auto max-[1099px]:hidden;
+    @apply p-4 w-72 overflow-auto max-[1099px]:hidden fixed;
     height: calc(100vh - 56px);
+  }
+  .util {
+    @apply my-4 bg-white w-[500px] max-w-[95%] h-fit rounded-lg shadow-sm py-3 px-5 mx-auto;
+  }
+  .main-content {
+    width: calc(100% - 288px);
   }
 }
 

@@ -5,7 +5,7 @@ export default function AccountAndNotifications() {
   return (
     <>
       <div className="flex items-center gap-3">
-        <span className="bg-[#e4e6eb] hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 max-[464px]:hidden">
+        <span className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 max-[464px]:hidden">
           <Notification />
         </span>
         <Image

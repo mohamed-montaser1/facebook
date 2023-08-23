@@ -1,5 +1,3 @@
-import Image from "next/image";
-import Logo from "./logo";
 import SideBarNavigation from "./SideBarNavigation";
 import SideBarGroups from "./SideBarGroups";
 
