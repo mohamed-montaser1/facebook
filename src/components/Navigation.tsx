@@ -11,7 +11,7 @@ const navigation = [
   //   { icon: MoreIcon, name: "more" },
 ];
 interface Props {
-  current: "home" | "friends" | "groups" | "more";
+  current?: "home" | "friends" | "groups" | "more";
 }
 export default function Navigation({ current }: Props) {
   return (
