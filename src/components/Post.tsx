@@ -30,7 +30,7 @@ export default function Post() {
         </div>
       </div>
       <div className="post__body mt-3">
-        <p dir="auto" className="mb-3">
+        <p dir="auto" className="mb-3 max-[464px]:text-sm">
           السلام عليكم يشباب يارب تكونو بخير. انا عملت الموقع ده علشان هو كان
           تحدي علي موقع frontendmentor.io وكان مصنف انه advanced. فكرة الموقع
           انه انت بتعرض كل دول العالم من api طبعا بس انا معرضتش دوله واحده علشان

@@ -16,8 +16,8 @@ function SideBarGroup() {
     <div className="flex items-center gap-2 my-2 hover:bg-cgray transition ease-linear py-2 px-2 rounded-lg cursor-pointer">
       <Image
         src={"/test-account-pic.jpg"}
-        width={36}
-        height={36}
+        width={28}
+        height={28}
         alt="group image"
         className="rounded-md select-none"
       />

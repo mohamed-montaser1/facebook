@@ -8,7 +8,7 @@ export default function SideBarNavigation() {
       <SideBarItem img="/sidebar-friends.png" text="Find friends" />
       <SideBarItem img="/sidebar-memories.png" text="Memories" />
       <div className="flex items-center gap-2 cursor-pointer hover:bg-cgray px-2 py-2 rounded-lg transition ease-linear">
-        <Logo width={28} height={28} />
+        <Logo width={24} height={24} />
         <span className="font-semibold text-md select-none">Welcome</span>
       </div>
       <SideBarItem img="/sidebar-saved.png" text="Saved" />
@@ -30,11 +30,13 @@ function SideBarItem({ img, text }: ISideBarItem) {
       <Image
         src={img}
         alt="sidebar-item__image"
-        width={36}
-        height={36}
+        width={28}
+        height={28}
         className={`rounded-full select-none`}
       />
-      <span className="font-semibold text-md select-none">{text}</span>
+      <span className="font-semibold text-md select-none text-[.9rem]">
+        {text}
+      </span>
     </div>
   );
 }

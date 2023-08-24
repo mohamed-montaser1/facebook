@@ -29,7 +29,7 @@
     @apply my-4 bg-white w-[500px] max-w-[95%] h-fit rounded-lg shadow-sm py-3 px-5 mx-auto;
   }
   .main-content {
-    width: calc(100% - 288px);
+    width: calc(100% - 576px);
   }
 }
 

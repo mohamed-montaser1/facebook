@@ -27,7 +27,7 @@ export default function CreateNewPost() {
           type="text"
           readOnly
           placeholder="What's on your mind, Mohamed?"
-          className="bg-cgray hover:bg-[#d4d5d8] active:scale-[0.96] transition ease-linear flex-1 rounded-full px-3 text-[#65676b] placeholder:text-[#65676b] border-none outline-none cursor-pointer"
+          className="bg-cgray hover:bg-[#d4d5d8] active:scale-[0.96] transition ease-linear flex-1 rounded-full px-3 text-[#65676b] placeholder:text-[#65676b] border-none outline-none cursor-pointer max-[454px]:text-sm"
         />
       </div>
       <ul className="mt-4 flex items-center justify-between flex-wrap max-[368px]:hidden">
