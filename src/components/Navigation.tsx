@@ -17,10 +17,12 @@ export default function Navigation({ current }: Props) {
   return (
     <ul className="flex gap-2 mx-auto">
       {navigation.map((Nav) => {
-        return current === Nav.name ? (
-          <Active element={<Nav.icon />} key={nanoid()} />
-        ) : (
-          <Normal element={<Nav.icon />} key={nanoid()} />
+        return (
+          <Normal
+            element={<Nav.icon />}
+            key={nanoid()}
+            active={current === Nav.name}
+          />
         );
       })}
     </ul>
@@ -29,19 +31,20 @@ export default function Navigation({ current }: Props) {
 
 interface ElementProps {
   element: React.ReactNode;
+  active?: boolean;
 }
 
-function Normal({ element }: ElementProps) {
+function Normal({ element, active }: ElementProps) {
   return (
-    <li className="text-[#65676B] hover:bg-[#f2f2f2] transition ease-linear cursor-pointer px-8 py-2 rounded-md max-[594px]:px-4 max-[464px]:hidden">
-      {element}
-    </li>
-  );
-}
-
-function Active({ element }: ElementProps) {
-  return (
-    <li className="text-[#1B74E4] transition ease-linear cursor-pointer max-[594px]:px-4 py-2 rounded-md max-[464px]:hidden">
+    <li
+      className={` ${
+        active ? "text-[#1B74E4]" : "hover:bg-[#f2f2f2] text-[#65676B]"
+      } transition ease-linear cursor-pointer px-8 py-2 rounded-md max-[594px]:px-4 max-[464px]:hidden relative ${
+        active
+          ? "after:absolute after:w-full after:h-[3px] after:bg-blue-500 after:left-0 after:-bottom-2 after:rounded-full"
+          : ""
+      }`}
+    >
       {element}
     </li>
   );
