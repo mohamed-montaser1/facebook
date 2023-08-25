@@ -32,7 +32,7 @@ export default function Login() {
               </button>
               <Link
                 href={"#"}
-                className="text-blue-500 block text-center mt-3 text-md hover:underline"
+                className="text-blue-500 block text-center mt-3 hover:underline"
               >
                 Forgotten password?
               </Link>

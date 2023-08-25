@@ -12,9 +12,19 @@ const utils: util[] = [
   { icon: "/feeling-activity.png", text: "Feeling/activity" },
 ];
 
-export default function CreateNewPost() {
+interface Props {
+  utilType?: string;
+}
+
+export default function CreateNewPost({ utilType }: Props) {
   return (
-    <div className="create-post__container util">
+    <div
+      className={`create-post__container ${
+      utilType === "util-fluid"
+        ? "util-fluid max-[1099px]:w-[80%] max-[464px]:w-[95%]"
+        : "util max-w-[90%]"
+    }`}
+    >
       <div className="flex gap-2 border-b border-b-cgray pb-4 max-[368px]:border-b-0">
         <Image
           src={"/test-account-pic.jpg"}

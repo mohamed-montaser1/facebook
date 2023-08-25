@@ -88,9 +88,7 @@ function Contact({ img, name }: IContactProps) {
         height={28}
         className={`rounded-full select-none`}
       />
-      <span className="font-semibold text-md select-none text-[.9rem]">
-        {name}
-      </span>
+      <span className="font-semibold select-none text-[.9rem]">{name}</span>
     </div>
   );
 }

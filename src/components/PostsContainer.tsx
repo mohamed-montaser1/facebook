@@ -1,12 +1,13 @@
 import Post from "./Post";
 
-export default function PostsContainer() {
+interface Props {
+  utilType?: string;
+}
+export default function PostsContainer({ utilType }: Props) {
   return (
     <>
-      <Post />
-      <Post />
-      <Post />
-      <Post />
+      <Post utilType={utilType} />
+      <Post utilType={utilType} />
     </>
   );
 }

@@ -15,14 +15,14 @@ const friendsAvatars: IFriendAvatar[] = [
 
 export default function PersonalDetails() {
   return (
-    <div className="w-full flex flex-col justify-between pt-14 gap-1">
-      <h1 className="font-bold text-[2rem] leading-[1.1875]">
+    <div className="w-full flex flex-col justify-between pt-14 gap-1 max-[946px]:pt-1">
+      <h1 className="font-bold text-[2rem] leading-[1.1875] max-[946px]:text-center">
         Mohamed Montaser
       </h1>
-      <span className="font-semibold text-[#65676B] select-none cursor-pointer hover:underline mb-1">
+      <span className="font-semibold text-[#65676B] select-none cursor-pointer hover:underline mb-1 max-[946px]:text-center">
         36 friends
       </span>
-      <div className="w-full flex justify-between items-center">
+      <div className="w-full flex justify-between items-center max-[946px]:flex-col max-[946px]:gap-3">
         <div className="flex">
           {friendsAvatars.map((avatar) => {
             return (
@@ -36,10 +36,10 @@ export default function PersonalDetails() {
           })}
         </div>
         <div className="flex gap-2">
-          <button className="flex items-center gap-2 bg-[#1b74e4] text-white px-4 py-2 rounded-lg">
+          <button className="flex items-center gap-2 bg-[#1b74e4] text-white px-4 py-2 rounded-lg font-semibold">
             <LuPlus /> Add to story
           </button>
-          <button className="flex items-center gap-2 bg-[#E4E6EB] px-4 py-2 rounded-lg">
+          <button className="flex items-center gap-2 bg-[#E4E6EB] px-4 py-2 rounded-lg font-semibold">
             <LuEdit /> Edit profile
           </button>
         </div>

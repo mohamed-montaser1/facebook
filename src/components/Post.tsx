@@ -11,9 +11,19 @@ interface IController {
   text: string;
 }
 
-export default function Post() {
+interface Props {
+  utilType?: string;
+}
+
+export default function Post({ utilType }: Props) {
   return (
-    <div className="post util">
+    <div
+      className={`post ${
+        utilType === "util-fluid"
+          ? "util-fluid max-[1099px]:w-[80%] max-[464px]:w-[95%]"
+          : "util max-w-[90%]"
+      } w-[500px]`}
+    >
       <div className="post__header flex items-center gap-2">
         <Image
           src={"/test-account-pic.jpg"}

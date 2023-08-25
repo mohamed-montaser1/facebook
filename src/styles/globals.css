@@ -26,7 +26,10 @@
     height: calc(100vh - 56px);
   }
   .util {
-    @apply my-4 bg-white w-[500px] max-w-[95%] h-fit rounded-lg shadow-sm py-3 px-5 mx-auto;
+    @apply my-4 bg-white h-fit rounded-lg shadow-sm py-3 px-5;
+  }
+  .util-fluid {
+    @apply my-4 bg-white h-fit rounded-lg shadow-sm py-3 px-5;
   }
   .main-content {
     width: calc(100% - 576px);
@@ -46,6 +49,10 @@ body {
   background: #f0f2f5;
 }
 
+html,
+body {
+  overflow-x: hidden;
+}
 ::-webkit-scrollbar {
   width: 10px;
 }
