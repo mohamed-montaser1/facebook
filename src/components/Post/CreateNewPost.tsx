@@ -51,7 +51,7 @@ export default function CreateNewPost({ utilType }: Props) {
 
 function UtilsItem({ icon, text }: util) {
   return (
-    <li className="flex gap-2 items-center w-fit py-2 px-4 rounded-lg cursor-pointer hover:bg-cgray transition ease-linear">
+    <li className="flex gap-2 items-center w-fit py-2 px-4 rounded-lg cursor-pointer hover:bg-[#f2f2f2] transition ease-linear">
       <Image
         src={icon}
         alt="add image to photo"

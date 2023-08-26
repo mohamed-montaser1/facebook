@@ -40,6 +40,10 @@
   .notifications-tab {
     @apply px-3 py-1 rounded-full font-semibold transition ease-linear;
   }
+  .popup {
+    @apply fixed top-16 bg-white w-[360px] right-4 z-50 rounded-lg px-3 py-4 overflow-auto;
+    max-width: calc(100vw - 24px);
+  }
 }
 
 *,

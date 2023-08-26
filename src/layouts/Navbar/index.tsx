@@ -3,15 +3,17 @@ import AccountAndNotifications from "./AccountAndNotifications";
 import Navigation from "./Navigation";
 import SearchBox from "./SearchBox";
 import Logo from "../../../public/logo";
-import NotificationPopup from "@/components/Ui/Notifications";
+import NotificationPopup from "./NotificationsPopup/Notifications";
 import { useState } from "react";
+import AccountPopup from "./AccountPopup/AccountPopup";
 
 interface Props {
   current?: "home" | "friends" | "groups" | "more";
 }
 
 export default function NavBar({ current }: Props) {
-  let [showPopup, setShowPopup] = useState<boolean>(false);
+  let [showNotificationPopup, setShowNotificationPopup] = useState<boolean>(false);
+  let [showAccountOptions, setShowAccountOptions] = useState<boolean>(false);
 
   return (
     <>
@@ -19,11 +21,15 @@ export default function NavBar({ current }: Props) {
         <Link href={"/"} className="mr-3">
           <Logo />
         </Link>
-        <SearchBox setShowPopup={setShowPopup} />
+        <SearchBox setShowNotificationPopup={setShowNotificationPopup} />
         <Navigation current={current} />
-        <AccountAndNotifications setShowPopup={setShowPopup} />
+        <AccountAndNotifications
+          setShowNotifications={setShowNotificationPopup}
+          setShowAccountOptions={setShowAccountOptions}
+        />
       </header>
-      {showPopup ? <NotificationPopup /> : null}
+      {showNotificationPopup ? <NotificationPopup /> : null}
+      {showAccountOptions ? <AccountPopup /> : null}
     </>
   );
 }
