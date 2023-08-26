@@ -5,6 +5,7 @@ import SideBar from "@/components/SideBar";
 import PostsContainer from "@/components/PostsContainer";
 import CreateNewPost from "@/components/CreateNewPost";
 import FriendsSideBar from "@/components/FriendsSideBar";
+import NotificationPopup from "@/components/Popups/Notifications";
 
 const inter = Inter({ subsets: ["latin"] });
 

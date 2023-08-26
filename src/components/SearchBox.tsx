@@ -1,7 +1,11 @@
 import SearchIcon from "./SearchIcon";
 import Notification from "./icons/Notification";
 
-export default function SearchBox() {
+interface Props {
+  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function SearchBox({ setShowPopup }: Props) {
   return (
     <>
       <div className="rounded-full bg-[#f0f2f5] flex items-center h-10 gap-2 px-4">
@@ -14,9 +18,12 @@ export default function SearchBox() {
           placeholder="Search Facebook"
         />
       </div>
-      <span className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 min-[464px]:hidden ml-3">
+      <button
+        className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 min-[464px]:hidden ml-3"
+        onClick={() => setShowPopup((prev) => !prev)}
+      >
         <Notification />
-      </span>
+      </button>
     </>
   );
 }

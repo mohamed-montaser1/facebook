@@ -34,6 +34,12 @@
   .main-content {
     width: calc(100% - 576px);
   }
+  .active-notifications-tab {
+    @apply text-blue-600 bg-blue-100 hover:bg-blue-200;
+  }
+  .notifications-tab {
+    @apply px-3 py-1 rounded-full font-semibold transition ease-linear;
+  }
 }
 
 *,

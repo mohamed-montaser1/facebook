@@ -111,8 +111,10 @@ const Controllers: IController[] = [
 function Controller({ icon, text }: IController) {
   return (
     <button className="flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear">
-      {icon}
-      <span className="text-[#65676B] font-semibold">{text}</span>
+      <span className="max-[460px]:text-xl">{icon}</span>
+      <span className="text-[#65676B] font-semibold max-[460px]:hidden">
+        {text}
+      </span>
     </button>
   );
 }

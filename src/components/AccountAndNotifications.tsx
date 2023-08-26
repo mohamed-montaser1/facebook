@@ -1,13 +1,20 @@
 import Image from "next/image";
 import Notification from "./icons/Notification";
 
-export default function AccountAndNotifications() {
+interface Props {
+  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function AccountAndNotifications({ setShowPopup }: Props) {
   return (
     <>
       <div className="flex items-center gap-3">
-        <span className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 max-[464px]:hidden">
+        <button
+          className="bg-cgray hover:bg-[#d5d6da] p-3 rounded-full cursor-pointer transition ease-linear active:scale-95 max-[464px]:hidden border-none outline-none"
+          onClick={() => setShowPopup((prev) => !prev)}
+        >
           <Notification />
-        </span>
+        </button>
         <Image
           src={"/test-account-pic.jpg"}
           alt="account-pic"
