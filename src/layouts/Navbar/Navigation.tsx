@@ -1,8 +1,8 @@
 import { nanoid } from "nanoid";
-import FriendsIcon from "./icons/FriendsIcon";
-import GroupsIcon from "./icons/GroupsIcon";
-import HomeIcon from "./icons/HomeIcon";
-import MoreIcon from "./icons/MoreIcon";
+import FriendsIcon from "@/components/icons/FriendsIcon";
+import GroupsIcon from "@/components/icons/GroupsIcon";
+import HomeIcon from "@/components/icons/HomeIcon";
+import MoreIcon from "@/components/icons/MoreIcon";
 
 const navigation = [
   { icon: HomeIcon, name: "home" },

@@ -1,11 +1,10 @@
 import { Inter } from "next/font/google";
-import NavBar from "@/components/NavBar";
+import NavBar from "@/layouts/Navbar";
 import Head from "next/head";
-import SideBar from "@/components/SideBar";
-import PostsContainer from "@/components/PostsContainer";
-import CreateNewPost from "@/components/CreateNewPost";
-import FriendsSideBar from "@/components/FriendsSideBar";
-import NotificationPopup from "@/components/Popups/Notifications";
+import SideBar from "@/layouts/RightSideBar";
+import PostsContainer from "@/components/Post/PostsContainer";
+import CreateNewPost from "@/components/Post/CreateNewPost";
+import FriendsSideBar from "@/layouts/LeftSideBar";
 
 const inter = Inter({ subsets: ["latin"] });
 

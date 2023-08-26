@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Logo from "./logo";
+import Logo from "../../components/logo";
 import Link from "next/link";
 
 export default function SideBarNavigation() {

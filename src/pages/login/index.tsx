@@ -1,4 +1,4 @@
-import SignUpModal from "@/components/SignUpModal";
+import SignUpModal from "./components/SignUpModal";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";

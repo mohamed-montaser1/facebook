@@ -1,5 +1,5 @@
-import SearchIcon from "./SearchIcon";
-import Notification from "./icons/Notification";
+import SearchIcon from "../../components/icons/SearchIcon";
+import Notification from "../../components/icons/Notification";
 
 interface Props {
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;

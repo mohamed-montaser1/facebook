@@ -2,8 +2,8 @@ import Link from "next/link";
 import AccountAndNotifications from "./AccountAndNotifications";
 import Navigation from "./Navigation";
 import SearchBox from "./SearchBox";
-import Logo from "./logo";
-import NotificationPopup from "./Popups/Notifications";
+import Logo from "../../../public/logo";
+import NotificationPopup from "@/components/Ui/Notifications";
 import { useState } from "react";
 
 interface Props {

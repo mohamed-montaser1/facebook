@@ -1,5 +1,5 @@
 import Image from "next/image";
-import Notification from "./icons/Notification";
+import Notification from "../../components/icons/Notification";
 
 interface Props {
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;

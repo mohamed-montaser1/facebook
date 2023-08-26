@@ -1,11 +1,11 @@
-import AccountNavigation from "@/components/AccountNavigation";
-import AccountSideBar from "@/components/AccountSideBar";
-import Cover from "@/components/Cover";
-import CreateNewPost from "@/components/CreateNewPost";
-import NavBar from "@/components/NavBar";
-import PersonalDetails from "@/components/PersonalDetails";
-import PostsContainer from "@/components/PostsContainer";
-import ProfilePicture from "@/components/ProfilePicture";
+import AccountNavigation from "@/components/Account/AccountNavigation";
+import AccountSideBar from "@/components/Account/AccountSideBar";
+import Cover from "@/components/Account/Cover";
+import CreateNewPost from "@/components/Post/CreateNewPost";
+import NavBar from "@/layouts/Navbar";
+import PersonalDetails from "@/components/Account/PersonalDetails";
+import PostsContainer from "@/components/Post/PostsContainer";
+import ProfilePicture from "@/components/Account/ProfilePicture";
 import Head from "next/head";
 
 export default function PersonalAccount() {
