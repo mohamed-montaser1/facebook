@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { FaCamera } from "react-icons/fa";
+
 export default function ProfilePicture() {
   return (
     <>

@@ -1,5 +1,9 @@
 import Image from "next/image";
-import { IContactProps } from ".";
+
+export interface IContactProps {
+  img: string;
+  name: string;
+}
 
 export default function Contact({ img, name }: IContactProps) {
   return (

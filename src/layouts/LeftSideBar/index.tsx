@@ -20,8 +20,3 @@ export default function FriendsSideBar() {
   );
 }
 
-
-export interface IContactProps {
-  img: string;
-  name: string;
-}

@@ -1,6 +1,5 @@
 import { nanoid } from "nanoid";
-import { IContactProps } from ".";
-import Contact from "./Contact";
+import Contact, { IContactProps } from "./Contact";
 
 let contacts: IContactProps[] = [
   { img: "/friend.jpeg", name: "Ahmed Sallam" },
