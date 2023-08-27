@@ -16,7 +16,7 @@
     @apply border border-solid border-slate-200 outline-none ps-4 leading-6 py-2 block w-full mb-2 rounded-md h-[40px] text-[17px] focus:border-blue-600;
   }
   .layer {
-    @apply bg-slate-100/60 w-full h-full absolute inset-0 flex justify-center items-center;
+    @apply bg-[#f4f4f4cc] w-full h-full absolute inset-0 flex justify-center items-center z-50;
   }
   .select {
     @apply w-32 border border-gray-200 rounded-md px-1 h-9;
