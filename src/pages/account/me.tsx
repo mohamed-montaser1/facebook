@@ -19,7 +19,7 @@ export default function PersonalAccount() {
       <Cover />
 
       <div className="bg-white pb-4 mb-5 shadow-sm max-w-full">
-        <div className="relative z-10 w-[940px] max-w-full mx-auto pl-5 flex flex-col items-center gap-5 ">
+        <div className="relative w-[940px] max-w-full mx-auto pl-5 flex flex-col items-center gap-5">
           <div className="flex items-center gap-5 w-full max-[946px]:flex-col max-[946px]:gap-0">
             <ProfilePicture />
             <div className="flex flex-col justify-end flex-1 pt-4 max-[946px]:pt-0">

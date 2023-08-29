@@ -12,7 +12,8 @@ interface Props {
 }
 
 export default function NavBar({ current }: Props) {
-  let [showNotificationPopup, setShowNotificationPopup] = useState<boolean>(false);
+  let [showNotificationPopup, setShowNotificationPopup] =
+    useState<boolean>(false);
   let [showAccountOptions, setShowAccountOptions] = useState<boolean>(false);
 
   return (

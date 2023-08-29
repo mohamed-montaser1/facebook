@@ -1,12 +1,19 @@
+import { MouseEventHandler } from "react";
+
 export interface ITabProps {
+  id?: number;
   text: string;
   active?: boolean;
   icon?: React.ReactNode;
+  onClick?: MouseEventHandler<HTMLDivElement>;
 }
 
-export default function Tab({ text, active, icon }: ITabProps) {
+export default function Tab({ text, active, icon, onClick }: ITabProps) {
   return (
-    <div className={`${active ? "border-b-2 border-blue-500" : ""} py-1`}>
+    <div
+      className={`${active ? "border-b-2 border-blue-500" : ""} py-1`}
+      onClick={onClick}
+    >
       <div
         className={`${
           active ? "" : "hover:bg-[#f2f2f2]"

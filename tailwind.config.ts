@@ -16,6 +16,15 @@ const config: Config = {
         cgray: "#e4e6eb",
       },
     },
+    fontFamily: {
+      sans: [
+        "Segoe UI Historic",
+        "Segoe UI",
+        "Helvetica",
+        "Arial",
+        "sans-serif",
+      ],
+    },
   },
   plugins: [],
 };

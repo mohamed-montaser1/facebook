@@ -4,6 +4,7 @@ import { LiaTimesSolid } from "react-icons/lia";
 import { PiSmileyLight } from "react-icons/pi";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
+import EmojiPicker from "@emoji-mart/react";
 
 interface Props {
   setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
@@ -92,15 +93,7 @@ export default function CreateNewPostPopup({ setShowPopup }: Props) {
             <PiSmileyLight />
           </span>
           <div className="absolute right-14">
-            {showEmojis && (
-              <Picker
-                data={data}
-                onEmojiSelect={handleAddEmoji}
-                autoFocus
-                theme={"light"}
-                previewPosition={"none"}
-              />
-            )}
+            {showEmojis && <EmojiPicker data={[]} />}
           </div>
         </div>
         <div className="utils-to-add border border-cgray rounded-lg mx-3 my-4 h-[58px] flex justify-between items-center px-3 shadow-sm">
