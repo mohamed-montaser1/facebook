@@ -1,14 +1,11 @@
 import { nanoid } from "nanoid";
 import Image from "next/image";
-import {
-  AiOutlineLike,
-  AiOutlineComment,
-  AiOutlineShareAlt,
-} from "react-icons/ai";
+import { ButtonHTMLAttributes, Fragment, useState } from "react";
 
 interface IController {
   icon: React.ReactNode;
   text: string;
+  className?: string;
 }
 
 interface Props {
@@ -16,6 +13,23 @@ interface Props {
 }
 
 export default function Post({ utilType }: Props) {
+  const [showReacts, setShowReacts] = useState<boolean>(false);
+  const [isHoverOverReacts, setIsHoverOverReacts] = useState<boolean>(false);
+
+  const handleShowReacts = () => {
+    setTimeout(() => {
+      setShowReacts(true);
+    }, 200);
+  };
+  const handleHideReacts = () => {
+    if (isHoverOverReacts) {
+      return;
+    }
+    setTimeout(() => {
+      setShowReacts(false);
+    }, 500);
+  };
+
   return (
     <div
       className={`post ${
@@ -86,14 +100,40 @@ export default function Post({ utilType }: Props) {
             4 comments
           </p>
         </div>
-        <div className="controllers mt-2 flex">
+        <div className="controllers mt-2 flex relative">
           {Controllers.map((controller) => {
             return (
-              <Controller
-                icon={controller.icon}
-                text={controller.text}
-                key={nanoid()}
-              />
+              <Fragment key={nanoid()}>
+                {controller.text === "Like" && (
+                  <div
+                    className={`reacts absolute bg-white shadow-md w-[329px] h-[49px] rounded-full -top-10 justify-between items-center px-1 ${
+                      showReacts ? "flex" : "hidden"
+                    }`}
+                    onMouseEnter={() => setIsHoverOverReacts(true)}
+                    onMouseLeave={() => setIsHoverOverReacts(false)}
+                  >
+                    {gifs.map((gif) => (
+                      <Image
+                        src={gif}
+                        alt={controller.text}
+                        width={47}
+                        height={47}
+                        className="cursor-pointer hover:scale-125 transition ease-in-out"
+                      />
+                    ))}
+                  </div>
+                )}
+                <Controller
+                  icon={controller.icon}
+                  text={controller.text}
+                  key={nanoid()}
+                  className={
+                    controller.text === "Like" ? "post-like-button" : ""
+                  }
+                  onMouseEnter={handleShowReacts}
+                  onMouseLeave={handleHideReacts}
+                />
+              </Fragment>
             );
           })}
         </div>
@@ -102,16 +142,74 @@ export default function Post({ utilType }: Props) {
   );
 }
 
-const Controllers: IController[] = [
-  { icon: <AiOutlineLike />, text: "Like" },
-  { icon: <AiOutlineComment />, text: "Comment" },
-  { icon: <AiOutlineShareAlt />, text: "Share" },
+const gifs = [
+  "/reacts/gifs-post/like.gif",
+  "/reacts/gifs-post/love.gif",
+  "/reacts/gifs-post/haha.gif",
+  "/reacts/gifs-post/wow.gif",
+  "/reacts/gifs-post/sad.gif",
+  "/reacts/gifs-post/angry.gif",
 ];
 
-function Controller({ icon, text }: IController) {
+const Controllers: IController[] = [
+  {
+    icon: (
+      <i
+        style={{
+          backgroundPosition: "-122px -126px",
+          backgroundImage: "url(/like-share-comment.png)",
+          WebkitFilter:
+            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+        }}
+        className="w-[18px] h-[18px] inline-block"
+      ></i>
+    ),
+    text: "Like",
+  },
+  {
+    icon: (
+      <i
+        style={{
+          backgroundPosition: "-84px -126px",
+          backgroundImage: "url(/like-share-comment.png)",
+          WebkitFilter:
+            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+        }}
+        className="w-[18px] h-[18px] inline-block"
+      ></i>
+    ),
+    text: "Comment",
+  },
+  {
+    icon: (
+      <i
+        style={{
+          backgroundPosition: "-141px -126px",
+          backgroundImage: "url(/like-share-comment.png)",
+          WebkitFilter:
+            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+        }}
+        className="w-[18px] h-[18px] inline-block"
+      ></i>
+    ),
+    text: "Share",
+  },
+];
+
+function Controller({
+  icon,
+  text,
+  className,
+  ...props
+}: IController & ButtonHTMLAttributes<HTMLButtonElement>) {
   return (
-    <button className="flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear">
-      <span className="max-[460px]:text-xl">{icon}</span>
+    <button
+      className={`flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear ${className}`}
+      {...props}
+    >
+      <span className="max-[460px]:text-xl flex items-center justify-center">
+        {icon}
+      </span>
       <span className="text-[#65676B] font-semibold max-[460px]:hidden">
         {text}
       </span>

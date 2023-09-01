@@ -101,7 +101,14 @@ export default function CreateNewPostPopup({ setShowPopup }: Props) {
             className="text-3xl cursor-pointer text-[#c8cace]"
             onClick={() => setShowEmojis((prev) => !prev)}
           >
-            <PiSmileyLight />
+            <i
+              className="block w-6 h-6"
+              style={{
+                backgroundImage: "url('/post-smile.png')",
+                backgroundPosition: "0px -70px",
+                WebkitFilter: "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)"
+              }}
+            ></i>
           </span>
           <div className="absolute -top-5 -right-36 max-[839px]:right-0">
             {showEmojis ? (
