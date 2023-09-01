@@ -1,12 +1,9 @@
-import { Inter } from "next/font/google";
 import NavBar from "@/layouts/Navbar";
 import Head from "next/head";
 import SideBar from "@/layouts/RightSideBar";
 import PostsContainer from "@/components/Post/PostsContainer";
 import CreateNewPost from "@/components/Post/CreateNewPost";
 import FriendsSideBar from "@/layouts/LeftSideBar";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -18,7 +15,8 @@ export default function Home() {
       <div className="pt-14">
         <SideBar />
         <div className="flex flex-col items-center main-content mx-auto max-[1099px]:w-full">
-          <CreateNewPost />
+          <CreateNewPost
+          />
           <PostsContainer />
         </div>
         <FriendsSideBar />

@@ -4,14 +4,14 @@ import { useState } from "react";
 import UpdateProfilePicutrePopup from "./UpdateProfilePicturePopup";
 
 export default function ProfilePicture() {
-  const [showPopup, setShowPopup] = useState<boolean>(true);
+  const [showPopup, setShowPopup] = useState<boolean>(false);
 
   const handleOpenUpdateProfilePicturePopup = () => {
     setShowPopup(true);
   };
   return (
     <>
-      <div className="w-[176px] h-[176px] rounded-full bg-white flex justify-center items-center relative">
+      <div className="w-[176px] h-[176px] aspect-square rounded-full bg-white flex justify-center items-center relative">
         <Image
           src={"/test-account-pic.jpg"}
           alt="Profile Picture"

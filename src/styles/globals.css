@@ -71,3 +71,14 @@ body {
   background-color: #b0b3bb;
   border-radius: 0.3rem;
 }
+
+em-emoji-picker {
+  width: 324px;
+  height: 264px;
+}
+
+@media (max-width: 402px) {
+  em-emoji-picker {
+    max-width: 90%;
+  }
+}

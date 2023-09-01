@@ -2,7 +2,6 @@ import { nanoid } from "nanoid";
 import Image from "next/image";
 import { useState } from "react";
 import CreateNewPostPopup from "./CreateNewPostPopup";
-
 interface util {
   icon: string;
   text: string;
@@ -17,7 +16,6 @@ const utils: util[] = [
 interface Props {
   utilType?: string;
 }
-
 export default function CreateNewPost({ utilType }: Props) {
   const [showPopup, setShowPopup] = useState<boolean>(false);
   return (
@@ -27,7 +25,7 @@ export default function CreateNewPost({ utilType }: Props) {
           utilType === "util-fluid"
             ? "util-fluid max-[1099px]:w-[80%] max-[464px]:w-[95%]"
             : "util max-w-[90%]"
-        }`}
+        } select-none`}
       >
         <div className="flex gap-2 border-b border-b-cgray pb-4 max-[368px]:border-b-0">
           <Image
@@ -53,7 +51,11 @@ export default function CreateNewPost({ utilType }: Props) {
           })}
         </ul>
       </div>
-      {showPopup && <CreateNewPostPopup setShowPopup={setShowPopup} />}
+      {showPopup && (
+        <CreateNewPostPopup
+          setShowPopup={setShowPopup}
+        />
+      )}
     </>
   );
 }

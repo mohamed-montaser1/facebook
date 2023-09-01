@@ -1,15 +1,9 @@
 import Image from "next/image";
-import { useRef, useState } from "react";
+import { useRef, useState, useCallback, useEffect } from "react";
 import { LiaTimesSolid } from "react-icons/lia";
 import { PiSmileyLight } from "react-icons/pi";
 import data from "@emoji-mart/data";
 import Picker from "@emoji-mart/react";
-import EmojiPicker from "@emoji-mart/react";
-
-interface Props {
-  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 interface IEmoji {
   id: string;
   keywords: string[];
@@ -19,10 +13,16 @@ interface IEmoji {
   unified: string;
 }
 
+interface Props {
+  setShowPopup: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
 export default function CreateNewPostPopup({ setShowPopup }: Props) {
   const [showEmojis, setShowEmojis] = useState<boolean>(false);
   const [textAreaValue, setTextAreaValue] = useState<string>("");
   const [validInput, setValidInput] = useState<boolean>(false);
+  const [cursorPosition, setCursorPosition] = useState<number>(0);
+  const [perLine, setPerline] = useState<number>(8);
   const textAreaRef = useRef<HTMLTextAreaElement>(null);
 
   const handlePostContentChange = (
@@ -47,16 +47,27 @@ export default function CreateNewPostPopup({ setShowPopup }: Props) {
   };
 
   const handleAddEmoji = (e: IEmoji) => {
-    const emoji = e.native;
-    const position = textAreaRef.current!.selectionStart;
-    let newTextAreaValueArray = textAreaValue.split("");
-    newTextAreaValueArray.splice(position, 0, emoji);
-    setTextAreaValue(newTextAreaValueArray.join(""));
+    const native = e.native;
+    const ref = textAreaRef.current as HTMLTextAreaElement;
+    const start = textAreaValue.substring(0, ref.selectionStart);
+    const end = textAreaValue.substring(ref.selectionStart);
+    setTextAreaValue(`${start}${native}${end}`);
+    setCursorPosition(start.length + native.length);
   };
+
+  useEffect(() => {
+    const ref = textAreaRef.current as HTMLTextAreaElement;
+    ref.focus();
+    ref.selectionEnd = cursorPosition;
+  }, [cursorPosition]);
+
+  useEffect(() => {
+    console.log(window.innerWidth);
+  }, [screen.width]);
 
   return (
     <div className="layer fixed">
-      <div className="w-[500px] max-w-[96%] h-[428px] rounded-lg bg-white shadow-xl">
+      <div className="w-[500px] max-w-[96%] h-[428px] rounded-lg bg-white shadow-xl select-none relative">
         <div className="create-post__header border-b border-b-cgray min-h-[50px] flex items-center justify-center relative">
           <h2 className="text-center text-xl font-semibold">Create post</h2>
           <button
@@ -85,15 +96,24 @@ export default function CreateNewPostPopup({ setShowPopup }: Props) {
           value={textAreaValue}
           ref={textAreaRef}
         ></textarea>
-        <div className="w-full flex justify-end items-center mt-2 px-3 relative">
+        <div className="w-full flex justify-end items-center mt-2 px-3">
           <span
             className="text-3xl cursor-pointer text-[#c8cace]"
             onClick={() => setShowEmojis((prev) => !prev)}
           >
             <PiSmileyLight />
           </span>
-          <div className="absolute right-14">
-            {showEmojis && <EmojiPicker data={[]} />}
+          <div className="absolute -top-5 -right-36 max-[839px]:right-0">
+            {showEmojis ? (
+              <Picker
+                data={data}
+                onEmojiSelect={handleAddEmoji}
+                previewPosition="none"
+                navPosition="bottom"
+                searchPosition="none"
+                perLine={screen.width <= 402 ? 6 : 8}
+              />
+            ) : null}
           </div>
         </div>
         <div className="utils-to-add border border-cgray rounded-lg mx-3 my-4 h-[58px] flex justify-between items-center px-3 shadow-sm">
