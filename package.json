@@ -17,9 +17,14 @@
     "@types/react-dom": "18.2.7",
     "autoprefixer": "10.4.15",
     "axios": "^1.5.0",
+    "bcrypt": "^5.1.1",
+    "cookies-next": "^4.0.0",
     "emoji-mart": "^5.5.2",
     "eslint": "8.47.0",
     "eslint-config-next": "13.4.19",
+    "express": "^4.18.2",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^7.6.3",
     "nanoid": "^4.0.2",
     "next": "13.4.19",
     "panta82-emoji-mart": "^3.0.1003",
@@ -32,6 +37,8 @@
     "typescript": "5.1.6"
   },
   "devDependencies": {
-    "@types/emoji-mart": "^3.0.9"
+    "@types/bcrypt": "^5.0.1",
+    "@types/emoji-mart": "^3.0.9",
+    "@types/jsonwebtoken": "^9.0.4"
   }
 }

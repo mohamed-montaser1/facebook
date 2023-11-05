@@ -1,34 +1,13 @@
-import { nanoid } from "nanoid";
 import Image from "next/image";
-import { ButtonHTMLAttributes, Fragment, useState } from "react";
-
-interface IController {
-  icon: React.ReactNode;
-  text: string;
-  className?: string;
-}
+import { useState } from "react";
+import CommentsContainer from "./Comments/CommentContainer";
 
 interface Props {
   utilType?: string;
 }
 
 export default function Post({ utilType }: Props) {
-  const [showReacts, setShowReacts] = useState<boolean>(false);
-  const [isHoverOverReacts, setIsHoverOverReacts] = useState<boolean>(false);
-
-  const handleShowReacts = () => {
-    setTimeout(() => {
-      setShowReacts(true);
-    }, 200);
-  };
-  const handleHideReacts = () => {
-    if (isHoverOverReacts) {
-      return;
-    }
-    setTimeout(() => {
-      setShowReacts(false);
-    }, 500);
-  };
+  const [showComments, setShowComments] = useState<boolean>(false);
 
   return (
     <div
@@ -77,21 +56,12 @@ export default function Post({ utilType }: Props) {
         </div>
         <div className="interact-info flex justify-between border-b border-b-cgray py-3">
           <div className="flex gap-2">
-            <div className="reacts flex">
-              <Image
-                src={"/reacts/small/heart.svg"}
-                width={18}
-                height={18}
-                alt="heart"
-              />
-              <Image
-                src={"/reacts/small/like.svg"}
-                width={18}
-                height={18}
-                alt="like"
-                className="-ml-1"
-              />
-            </div>
+            <Image
+              src={"/reacts/small/heart.svg"}
+              width={18}
+              height={18}
+              alt="heart"
+            />
             <p className="text-slate-600 cursor-pointer select-none hover:underline">
               5
             </p>
@@ -101,118 +71,64 @@ export default function Post({ utilType }: Props) {
           </p>
         </div>
         <div className="controllers mt-2 flex relative">
-          {Controllers.map((controller) => {
-            return (
-              <Fragment key={nanoid()}>
-                {controller.text === "Like" && (
-                  <div
-                    className={`reacts absolute bg-white shadow-md w-[329px] h-[49px] rounded-full -top-10 justify-between items-center px-1 ${
-                      showReacts ? "flex" : "hidden"
-                    }`}
-                    onMouseEnter={() => setIsHoverOverReacts(true)}
-                    onMouseLeave={() => setIsHoverOverReacts(false)}
-                  >
-                    {gifs.map((gif) => (
-                      <Image
-                        src={gif}
-                        alt={controller.text}
-                        width={47}
-                        height={47}
-                        className="cursor-pointer hover:scale-125 transition ease-in-out"
-                      />
-                    ))}
-                  </div>
-                )}
-                <Controller
-                  icon={controller.icon}
-                  text={controller.text}
-                  key={nanoid()}
-                  className={
-                    controller.text === "Like" ? "post-like-button" : ""
-                  }
-                  onMouseEnter={handleShowReacts}
-                  onMouseLeave={handleHideReacts}
-                />
-              </Fragment>
-            );
-          })}
+          <button
+            className={`flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear post-like-button`}
+          >
+            <span className="max-[460px]:text-xl flex items-center justify-center">
+              <i
+                style={{
+                  backgroundPosition: "-122px -126px",
+                  backgroundImage: "url(/like-share-comment.png)",
+                  WebkitFilter:
+                    "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+                }}
+                className="w-[18px] h-[18px] inline-block"
+              ></i>
+            </span>
+            <span className="text-[#65676B] font-semibold max-[460px]:hidden">
+              Like
+            </span>
+          </button>
+          <button
+            className={`flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear`}
+          >
+            <span className="max-[460px]:text-xl flex items-center justify-center">
+              <i
+                style={{
+                  backgroundPosition: "-84px -126px",
+                  backgroundImage: "url(/like-share-comment.png)",
+                  WebkitFilter:
+                    "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+                }}
+                className="w-[18px] h-[18px] inline-block"
+              ></i>
+            </span>
+            <span className="text-[#65676B] font-semibold max-[460px]:hidden">
+              Comment
+            </span>
+          </button>
+          <button
+            className={`flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear`}
+          >
+            <span className="max-[460px]:text-xl flex items-center justify-center">
+              {" "}
+              <i
+                style={{
+                  backgroundPosition: "-141px -126px",
+                  backgroundImage: "url(/like-share-comment.png)",
+                  WebkitFilter:
+                    "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
+                }}
+                className="w-[18px] h-[18px] inline-block"
+              ></i>
+            </span>
+            <span className="text-[#65676B] font-semibold max-[460px]:hidden">
+              Share
+            </span>
+          </button>
         </div>
       </div>
+      {showComments ? <CommentsContainer /> : null}
     </div>
-  );
-}
-
-const gifs = [
-  "/reacts/gifs-post/like.gif",
-  "/reacts/gifs-post/love.gif",
-  "/reacts/gifs-post/haha.gif",
-  "/reacts/gifs-post/wow.gif",
-  "/reacts/gifs-post/sad.gif",
-  "/reacts/gifs-post/angry.gif",
-];
-
-const Controllers: IController[] = [
-  {
-    icon: (
-      <i
-        style={{
-          backgroundPosition: "-122px -126px",
-          backgroundImage: "url(/like-share-comment.png)",
-          WebkitFilter:
-            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
-        }}
-        className="w-[18px] h-[18px] inline-block"
-      ></i>
-    ),
-    text: "Like",
-  },
-  {
-    icon: (
-      <i
-        style={{
-          backgroundPosition: "-84px -126px",
-          backgroundImage: "url(/like-share-comment.png)",
-          WebkitFilter:
-            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
-        }}
-        className="w-[18px] h-[18px] inline-block"
-      ></i>
-    ),
-    text: "Comment",
-  },
-  {
-    icon: (
-      <i
-        style={{
-          backgroundPosition: "-141px -126px",
-          backgroundImage: "url(/like-share-comment.png)",
-          WebkitFilter:
-            "invert(39%) sepia(21%) saturate(200%) saturate(109.5%) hue-rotate(174deg) brightness(94%) contrast(86%)",
-        }}
-        className="w-[18px] h-[18px] inline-block"
-      ></i>
-    ),
-    text: "Share",
-  },
-];
-
-function Controller({
-  icon,
-  text,
-  className,
-  ...props
-}: IController & ButtonHTMLAttributes<HTMLButtonElement>) {
-  return (
-    <button
-      className={`flex items-center justify-center py-2 rounded-lg cursor-pointer gap-1 w-1/3 hover:bg-cgray transition ease-linear ${className}`}
-      {...props}
-    >
-      <span className="max-[460px]:text-xl flex items-center justify-center">
-        {icon}
-      </span>
-      <span className="text-[#65676B] font-semibold max-[460px]:hidden">
-        {text}
-      </span>
-    </button>
   );
 }

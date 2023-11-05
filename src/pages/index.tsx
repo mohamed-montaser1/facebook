@@ -15,8 +15,7 @@ export default function Home() {
       <div className="pt-14">
         <SideBar />
         <div className="flex flex-col items-center main-content mx-auto max-[1099px]:w-full">
-          <CreateNewPost
-          />
+          <CreateNewPost />
           <PostsContainer />
         </div>
         <FriendsSideBar />

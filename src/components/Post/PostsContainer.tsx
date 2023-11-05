@@ -1,3 +1,4 @@
+import { nanoid } from "nanoid";
 import Post from "./Post";
 
 interface Props {
@@ -6,8 +7,8 @@ interface Props {
 export default function PostsContainer({ utilType }: Props) {
   return (
     <>
-      <Post utilType={utilType} />
-      <Post utilType={utilType} />
+      <Post utilType={utilType} key={nanoid()} />
+      <Post utilType={utilType} key={nanoid()} />
     </>
   );
 }

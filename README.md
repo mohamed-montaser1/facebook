@@ -21,7 +21,7 @@
         <ul>
             <li>Create New Post</li>
             <li>Show All Your Friend's Posts</li>
-            <li>Can (Like, Love, Care, Lol, Sad, Angrey )</li>
+            <li>Can (Like, Love, Care, Lol, Sad, Angry)</li>
             <li>Can Comment</li>
             <li>Can Share</li>
             <li>Custom Page For Post</li>
@@ -38,7 +38,7 @@
         <h3>Account</h3>
         <ul>
             <li>Can Add Bio</li>
-            <li>Can Add Hobies</li>
+            <li>Can Add Hobbies</li>
             <li>Photos Section</li>
             <li>Friends Section</li>
             <li>Avatar</li>
@@ -53,7 +53,7 @@
             <li>Add Friend Request</li>
             <li>Remove Friend Request (pending mode)</li>
             <li>Follow</li>
-            <li>Notification When Some One Start Follwing You Or Send A Friend Request</li>
+            <li>Notification When Some One Start Following You Or Send A Friend Request</li>
         </ul>
     </li>
     <li>
