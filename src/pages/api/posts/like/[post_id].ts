@@ -7,10 +7,18 @@ import { NextApiResponse } from "next";
 async function handler(req: RequestWithUserHeader, res: NextApiResponse) {
   await dbConnect();
   if (req.method === "POST") {
-    await handleLikeOrDislike(req, res, true);
+    await handleLike(req, res);
   } else if (req.method === "DELETE") {
-    await handleLikeOrDislike(req, res, false);
+    await handleDislike(req, res);
   }
+}
+
+async function handleLike(req: RequestWithUserHeader, res: NextApiResponse) {
+  await handleLikeOrDislike(req, res, true);
+}
+
+async function handleDislike(req: RequestWithUserHeader, res: NextApiResponse) {
+  await handleLikeOrDislike(req, res, false);
 }
 
 async function handleLikeOrDislike(
@@ -18,13 +26,11 @@ async function handleLikeOrDislike(
   res: NextApiResponse,
   isLike: boolean
 ) {
-  const post_id = req.query.post_id;
+  const post_id = req.query.post_id as string;
+  let result = validatePostId(post_id);
 
-  if (!mongoose.isValidObjectId(post_id)) {
-    return res.status(400).json({
-      success: false,
-      message: "Please enter a valid `post_id`",
-    });
+  if (!result.success) {
+    return res.status(result.status).json(result);
   }
 
   const post: IPost | null = await postModel.findById(post_id);
@@ -67,6 +73,26 @@ async function handleLikeOrDislike(
       } from the post's likes array`,
     });
   }
+}
+
+function validatePostId(post_id: string) {
+  if (!post_id) {
+    return {
+      status: 400,
+      success: false,
+      message: "You must add `post_id` in request url's params",
+    };
+  }
+
+  if (!mongoose.isValidObjectId(post_id)) {
+    return {
+      status: 400,
+      success: false,
+      message: "Please enter a valid `post_id`",
+    };
+  }
+
+  return { success: true, status: 200 };
 }
 
 export default jwtChecker(handler);
