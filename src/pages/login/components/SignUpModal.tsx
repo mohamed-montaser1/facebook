@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useState } from "react";
 
 const years: Array<number> = [];
 
@@ -9,8 +10,57 @@ for (let i = 1905; i <= Number(new Date().getFullYear()); i++) {
 interface Props {
   setShowSignUpModal: React.Dispatch<React.SetStateAction<boolean>>;
 }
+type IMonth =
+  | "Jan"
+  | "Feb"
+  | "Mar"
+  | "Apr"
+  | "May"
+  | "Jun"
+  | "Jul"
+  | "Aug"
+  | "Sep"
+  | "Oct"
+  | "Nov"
+  | "Dec";
+
+type IDay =
+  | 1
+  | 2
+  | 3
+  | 4
+  | 5
+  | 6
+  | 7
+  | 8
+  | 9
+  | 10
+  | 11
+  | 12
+  | 13
+  | 14
+  | 15
+  | 16
+  | 17
+  | 18
+  | 19
+  | 20
+  | 21
+  | 22
+  | 23
+  | 24
+  | 25
+  | 26
+  | 27
+  | 28
+  | 29
+  | 30
+  | 31;
 
 export default function SignUpModal({ setShowSignUpModal }: Props) {
+  let [month, setMonth] = useState<IMonth>("Aug");
+  let [day, setDay] = useState<IDay>(21);
+  let [year, setYear] = useState<number>(new Date().getFullYear());
   return (
     <div className="layer">
       <div className="signup-modal card w-[432px] min-h-[400px] px-0">
@@ -55,7 +105,12 @@ export default function SignUpModal({ setShowSignUpModal }: Props) {
             <div className="birth-date">
               <small className="text-gray-500">Date of birth</small>
               <div className="flex gap-2">
-                <select name="day" value={"21"} className="select">
+                <select
+                  name="day"
+                  value={day}
+                  className="select"
+                  onChange={(e) => setDay(+e.target.value as IDay)}
+                >
                   {Array.from({ length: 31 }, (v, i) => i + 1).map(
                     (el, index) => {
                       return (
@@ -66,7 +121,12 @@ export default function SignUpModal({ setShowSignUpModal }: Props) {
                     }
                   )}
                 </select>
-                <select name="day" value={"Aug"} className="select">
+                <select
+                  name="month"
+                  value={month}
+                  className="select"
+                  onChange={(e) => setMonth(e.target.value as IMonth)}
+                >
                   <option value="Jan">Jan</option>
                   <option value="Feb">Feb</option>
                   <option value="Mar">Mar</option>
@@ -81,9 +141,10 @@ export default function SignUpModal({ setShowSignUpModal }: Props) {
                   <option value="Dec">Dec</option>
                 </select>
                 <select
-                  name="day"
-                  value={new Date().getFullYear()}
+                  name="year"
+                  value={year}
                   className="select"
+                  onChange={(e) => setYear(+e.target.value)}
                 >
                   {years.map((el) => {
                     return (

@@ -15,6 +15,10 @@ const postSchema = new Schema({
     default: 0,
   },
   likes: [{ type: Schema.Types.ObjectId, ref: "User" }],
+  comments_closed: {
+    type: Boolean,
+    default: false,
+  },
   comments: {
     type: [
       {
@@ -50,6 +54,7 @@ export interface IPost {
   likesCount: number;
   likes: string[];
   createdAt: Date;
+  comments_closed: boolean;
   comments: {
     user: string;
     comment: string;

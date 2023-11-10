@@ -1,7 +1,7 @@
 import jwtChecker, { RequestWithUserHeader } from "@/middlewares/jwtChecker";
 import postModel, { IPost } from "@/models/post.model";
 import dbConnect from "@/utils/dbConnect";
-import mongoose from "mongoose";
+import validatePostId from "@/utils/validatePostId";
 import { NextApiResponse } from "next";
 
 async function handler(req: RequestWithUserHeader, res: NextApiResponse) {
@@ -73,26 +73,6 @@ async function handleLikeOrDislike(
       } from the post's likes array`,
     });
   }
-}
-
-function validatePostId(post_id: string) {
-  if (!post_id) {
-    return {
-      status: 400,
-      success: false,
-      message: "You must add `post_id` in request url's params",
-    };
-  }
-
-  if (!mongoose.isValidObjectId(post_id)) {
-    return {
-      status: 400,
-      success: false,
-      message: "Please enter a valid `post_id`",
-    };
-  }
-
-  return { success: true, status: 200 };
 }
 
 export default jwtChecker(handler);

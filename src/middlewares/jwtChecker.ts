@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiHandler, NextApiRequest, NextApiResponse } from "next";
 import cookie from "cookie";
 import { jwtVerify } from "@/utils/jwtUtils";
 import { JwtPayload } from "jsonwebtoken";
@@ -30,5 +30,5 @@ export default (handler: Ihandler) =>
 
     req.user = user;
 
-    return handler(req, res);
+    handler(req, res);
   };
