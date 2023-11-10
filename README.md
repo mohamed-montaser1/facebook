@@ -1,74 +1,57 @@
-<h1>Hello Developer.</h1>
-<hr />
-<h2>In This Repo I am Creating a Greet And Powerful Facebook Clone</h2>
-<h3>I Just Started This Challenge With Myself To Provide My Skills Level. I am Sure That My Code Will make you Interested</h3>
-<hr />
-<h2>Features</h2>
-<ul>
-    <li>
-        <h3>Authentication</h3>
-        <ul>
-            <li>Sign In With Email And Password</li>
-            <li>Sign In With Google Or Facebook Or Github</li>
-            <li>Sign Up (firstname, lastname, email, password, rePassword)</li>
-            <li>Logout</li>
-            <li>Reset Password By Send Email</li>
-            <li>Remove Your Account</li>
-        </ul>
-    </li>
-    <li>
-        <h3>Posts</h3>
-        <ul>
-            <li>Create New Post</li>
-            <li>Show All Your Friend's Posts</li>
-            <li>Can (Like, Love, Care, Lol, Sad, Angry)</li>
-            <li>Can Comment</li>
-            <li>Can Share</li>
-            <li>Custom Page For Post</li>
-            <li>Can Visit The Author Account Of The Post</li>
-            <li>Can Add Photo</li>
-            <li>Can Add Some Nice Background To The Post</li>
-            <li>Can Add Emoji And Search for Emoji</li>
-            <li>Can Mention Some One Of Friends In The Post</li>
-            <li>Can Make Post Private (Cannot Share It, Just Friends Can See it)</li>
-            <li>Can Close Comments</li>
-        </ul>
-    </li>
-    <li>
-        <h3>Account</h3>
-        <ul>
-            <li>Can Add Bio</li>
-            <li>Can Add Hobbies</li>
-            <li>Photos Section</li>
-            <li>Friends Section</li>
-            <li>Avatar</li>
-            <li>Cover</li>
-            <li>Edit Avatar</li>
-            <li>Edit Cover</li>
-        </ul>
-    </li>
-    <li>
-        <h3>Friends</h3>
-        <ul>
-            <li>Add Friend Request</li>
-            <li>Remove Friend Request (pending mode)</li>
-            <li>Follow</li>
-            <li>Notification When Some One Start Following You Or Send A Friend Request</li>
-        </ul>
-    </li>
-    <li>
-        <h3>Global Features</h3>
-        <ul>
-            <li>Notifications</li>
-            <li>Search For Friends By Name</li>
-        </ul>
-    </li>
-</ul>
-<hr />
-<h2>Core Technologies</h2>
+# Greetings, Developer! 👋
 
-<ul>
-    <li><b>Next js</b></li>
-    <li><b>Typescript</b></li>
-    <li><b>Tailwind</b></li>
-</ul>
+## Welcome to the Facebook Clone Repository
+
+I've embarked on a personal challenge to create a vibrant and powerful Facebook Clone, showcasing my skills. I'm confident that the codebase will capture your interest.
+
+## Features
+
+### Authentication
+- Sign in with email and password
+- Sign in with Google, Facebook, or Github
+- User registration (includes first name, last name, email, password, and password confirmation)
+- Logout functionality
+- Password reset via email
+- Account removal
+
+### Posts
+- Create new posts
+- View posts from friends
+- Interaction options: Like, Love, Care, Lol, Sad, Angry
+- Comment on posts
+- Share posts
+- Customized post pages
+- Visit the author's account from a post
+- Add photos and background images to posts
+- Include emojis and search for emojis
+- Mention friends in posts
+- Make posts private (visible only to friends)
+- Close comments on posts
+
+### Account
+- Add a bio
+- List hobbies
+- Photos section
+- Friends section
+- Avatar customization
+- Cover photo customization
+- Edit avatar
+- Edit cover photo
+
+### Friends
+- Send friend requests
+- Manage pending friend requests
+- Follow friends
+- Receive notifications for new followers and friend requests
+
+### Global Features
+- Notifications
+- Search for friends by name
+
+## Core Technologies
+
+- Next.js
+- TypeScript
+- Tailwind CSS
+
+Feel free to explore, contribute, and enjoy the journey! Happy coding! 🚀
